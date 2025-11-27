@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FINE — Okinawa Edition｜40代からの穏やかな出会い</title>
+  <meta name="description"
+    content="FINE（ファイン）Okinawa Editionは、40代以降の大人の出会いをサポートするお見合い＆少人数パーティーサービス。沖縄の光と海のように穏やかなご縁を結びます。" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ======================================
+       🌺 FINE Okinawa — Global Style
+    ====================================== */
+    :root {
+      --bg: linear-gradient(180deg, #fdfcf9 0%, #faf7f3 40%, #f2ede8 100%);
+      --paper: #fffdf9;
+      --ink: #2e2a26;
+      --sub: #5c554e;
+      --accent: #b48c66;
+      --mint: #bfeada;
+      --coral: #f8c9a1;
+      --line: #e9e2d9;
+      --shadow: 0 10px 30px rgba(34, 24, 16, .08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --maxw: 1140px;
+    }
+
+    /* Base */
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.85;
+      letter-spacing: .02em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(120%) blur(8px);
+      background: rgba(255, 255, 255, .85);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-family: "Shippori Mincho B1", serif;
+    }
+
+    .brand .logo {
+      font-size: 1.8rem;
+      letter-spacing: .18em;
+    }
+
+    .brand .tag {
+      font-size: .8rem;
+      color: var(--sub);
+      opacity: .8;
+    }
+
+    /* Navigation (PC base) */
+    nav.main-nav {
+      display: none;
+      gap: 28px;
+    }
+
+    nav.main-nav a {
+      font-size: .95rem;
+      opacity: .9;
+    }
+
+    /* ハンバーガー制御用チェックボックス（視覚的には隠す） */
+    .menu-toggle {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    /* PCレイアウト */
+    @media (min-width: 900px) {
+      nav.main-nav {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: none;
+      }
+
+      header .overlay {
+        display: none;
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--mint);
+      background: linear-gradient(180deg, #fff 0%, #fafffc 100%);
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .btn.primary {
+      background: linear-gradient(180deg, var(--mint) 0%, #a7e1cc 100%);
+      color: #1a3c2f;
+    }
+
+    /* =======================
+       HERO
+    ======================= */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 90vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(60% 45% at 62% 38%,
+          rgba(255, 255, 255, 0.28) 0%,
+          rgba(255, 255, 255, 0.06) 60%,
+          transparent 100%),
+        linear-gradient(180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(252, 250, 247, 0.08) 80%);
+      z-index: 1;
+    }
+
+    .hero img.bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) contrast(1.05);
+      animation: gentleGlow 8s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    /* Hero box */
+    .hero-inner {
+      position: absolute;
+      top: 52%;
+      left: 9%;
+      transform: translateY(-50%);
+      max-width: 640px;
+      padding: 2.8rem 2.6rem;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(2px) saturate(120%);
+      border-radius: 20px;
+      box-shadow: 0 6px 40px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: "Shippori Mincho B1", serif;
+      font-size: clamp(2rem, 2.3rem + 1vw, 3.2rem);
+      line-height: 1.65;
+      letter-spacing: .07em;
+      color: rgba(46, 42, 38, 0.92);
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+
+    .hero p.lead {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(60, 55, 50, 0.85);
+      text-shadow: 0 1px 5px rgba(255, 255, 255, 0.6);
+      margin: 0 0 1.2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: .8rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(230, 220, 200, 0.5);
+      padding: .5rem 1.1rem;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-family: "Shippori Mincho B1", serif;
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 0 0 40px;
+      letter-spacing: .08em;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: var(--radius);
+      border: 1px solid rgba(230, 220, 200, 0.6);
+      padding: 28px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .value-grid,
+    .event-grid,
+    .voice-grid,
+    .plan-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 860px) {
+
+      .value-grid,
+      .event-grid,
+      .voice-grid,
+      .plan-grid {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+      }
+    }
+
+    /* 📸 写真セクション */
+    .section-photo {
+      width: 100%;
+      margin: 60px 0 0;
+    }
+
+    .section-photo img {
+      width: 100%;
+      height: 46vh;
+      object-fit: cover;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    /* パーティー写真だけ“添える感じ”に */
+    .section-photo.party-photo img {
+      width: 70%;
+      height: auto;
+      max-width: 620px;
+      margin: 0 auto;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    @media (max-width: 768px) {
+      .section-photo img {
+        height: 34vh;
+        border-radius: 12px;
+      }
+
+      .section-photo.party-photo img {
+        width: 88%;
+        height: auto;
+        max-width: none;
+        border-radius: 12px;
+      }
+    }
+
+    /* Contact */
+    .contact {
+      background: linear-gradient(180deg, #fafffc 0%, #fffdf9 70%, #fffaf3 100%);
+      padding: 100px 0;
+    }
+
+    .contact-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #fff 0%, #fdfaf6 100%);
+      padding: 40px 32px;
+      border-radius: 18px;
+      border: 1px solid rgba(230, 220, 200, 0.6);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    .contact-title {
+      text-align: center;
+      font-family: "Shippori Mincho B1", serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      color: var(--sub);
+      font-size: .95rem;
+    }
+
+    .contact input,
+    .contact select,
+    .contact textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 1rem;
+    }
+
+    /* Epilogue */
+    .epilogue {
+      text-align: center;
+      padding: 120px 20px;
+      background: linear-gradient(180deg, #fffaf6 0%, #f9f6f1 60%, #f5f1ec 100%);
+      font-family: "Shippori Mincho B1", serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .epilogue::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 240, 0.6) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(255, 228, 200, 0.4) 0%, transparent 80%);
+      opacity: 0.8;
+      animation: gentleLight 12s ease-in-out infinite alternate;
+    }
+
+    .epilogue p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.6rem;
+      letter-spacing: .15em;
+      color: rgba(46, 42, 38, 0.85);
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7);
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeInUp 1.8s ease forwards;
+      opacity: 0;
+    }
+
+    /* Fade */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .6s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes gentleGlow {
+      0%,
+      100% {
+        filter: brightness(1);
+      }
+
+      50% {
+        filter: brightness(1.07);
+      }
+    }
+
+    @keyframes gentleLight {
+      0% {
+        opacity: .6;
+        transform: translateY(0);
+      }
+
+      50% {
+        opacity: .9;
+        transform: translateY(-5px);
+      }
+
+      100% {
+        opacity: .6;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================
+       📱 モバイル向け調整
+    ============================ */
+
+    /* ハンバーガー + スライドナビ（〜899px） */
+    @media (max-width: 899px) {
+      .menu-btn {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 120;
+      }
+
+      .menu-btn span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition: 0.35s;
+      }
+
+      header .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 74%;
+        max-width: 320px;
+        height: 100vh;
+        padding: 80px 24px 24px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(8px);
+        box-shadow: -6px 0 24px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        transition: right 0.35s ease;
+        z-index: 110;
+      }
+
+      header .main-nav a {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      header .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        z-index: 100;
+      }
+
+      /* チェックONでメニュー&オーバーレイON */
+      #menuToggle:checked ~ .main-nav {
+        right: 0;
+      }
+
+      #menuToggle:checked ~ .overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ハンバーガー → ✖ アニメーション */
+      #menuToggle:checked + .menu-btn span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+
+      #menuToggle:checked + .menu-btn span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menuToggle:checked + .menu-btn span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+
+      /* HERO モバイル */
+      .hero {
+        height: 110vh;
+        align-items: flex-end;
+        padding-bottom: 10vh;
+      }
+
+      .hero::after {
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(255, 255, 255, 0.25) 35%,
+            rgba(255, 255, 255, 0.1) 100%
+          );
+      }
+
+      .hero-inner {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 2rem 1.6rem;
+        max-width: 85%;
+        margin-bottom: -10%;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.6rem, 1.8rem + 1vw, 2.3rem);
+        line-height: 1.65;
+      }
+
+      /* Section spacing */
+      section {
+        padding: 70px 0;
+      }
+    }
+
+    /* フッター */
+    footer.site-footer {
+      background: #f9f8f5;
+      border-top: 1px solid var(--line);
+      padding: 60px 0;
+      text-align: center;
+      color: var(--sub);
+      font-size: .9rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="logo">FINE</div>
+        <div class="tag">Marriage & Encounter — Okinawa Edition</div>
+      </div>
+
+      <!-- ハンバーガー制御 -->
+      <input type="checkbox" id="menuToggle" class="menu-toggle">
+
+      <label for="menuToggle" class="menu-btn" aria-label="メニューを開閉">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav">
+        <a href="#service" onclick="document.getElementById('menuToggle').checked=false">サービス</a>
+        <a href="#events" onclick="document.getElementById('menuToggle').checked=false">パーティー</a>
+        <a href="#story" onclick="document.getElementById('menuToggle').checked=false">理念</a>
+        <a href="#contact" onclick="document.getElementById('menuToggle').checked=false">相談予約</a>
+      </nav>
+
+      <div class="overlay" onclick="document.getElementById('menuToggle').checked=false"></div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="image/hero_okinawa.jpg" class="bg" alt="沖縄の海辺のカフェで穏やかに語り合う大人の男女">
+    <div class="hero-inner">
+      <span class="hero-badge">沖縄の光と風に包まれて</span>
+      <h1>もう一度、人を好きになる場所。</h1>
+      <p class="lead">
+        FINE Okinawaは、海のそばで心を開く、大人のための出会いサロン。<br>
+        穏やかな光の中で、あなたの新しいご縁がはじまります。
+      </p>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn primary">無料カウンセリングを予約</a>
+        <a href="#events" class="btn">次回パーティーを見る</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICE -->
+  <section id="service">
+    <div class="wrap">
+      <h2 class="section-title">FINEのサービス</h2>
+      <div class="value-grid">
+        <div class="card fade-up">
+          <h3>1対1のお見合い</h3>
+          <p>仲人が一人ひとりの価値観を丁寧にヒアリングし、落ち着いたカフェやラウンジで自然な出会いをサポートします。</p>
+        </div>
+        <div class="card fade-up">
+          <h3>少人数パーティー</h3>
+          <p>海辺のティー会、夕暮れワイン会など、季節に合わせた小さな集まりを開催。会話が自然に生まれる空間を大切に。</p>
+        </div>
+        <div class="card fade-up">
+          <h3>アフターサポート</h3>
+          <p>交際中の不安や悩みも相談できるから安心。専任カウンセラーがあなたのペースで伴走します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎉 パーティー写真（添える感じ） -->
+  <section class="section-photo party-photo">
+    <img src="image/photo_party.png" alt="沖縄の海辺カフェで談笑する40〜60代の男女">
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="wrap">
+      <h2 class="section-title">次回パーティー</h2>
+      <div class="event-grid">
+        <div class="card fade-up">
+          <h3>春の海辺ティー会</h3>
+          <p><strong>4/21（日）14:00–16:00｜那覇市 海辺カフェ</strong></p>
+          <p>潮風を感じながらゆったり会話を楽しめる少人数会。</p>
+        </div>
+        <div class="card fade-up">
+          <h3>夕暮れガーデンマッチング</h3>
+          <p><strong>5/12（日）17:30–19:30｜北谷町テラス</strong></p>
+          <p>夕日の中で穏やかに語らう、上質な大人の時間。</p>
+        </div>
+        <div class="card fade-up">
+          <h3>夏前ワインサロン</h3>
+          <p><strong>6/8（土）18:00–20:00｜那覇ラウンジ</strong></p>
+          <p>軽やかな音楽とともに、ゆるやかにご縁を。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 🌅 抽象海 写真 -->
+  <section class="section-photo sea-photo">
+    <img src="image/photo_sea.png" alt="沖縄の夕暮れの海の風景">
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="wrap">
+      <h2 class="section-title">FINEの理念</h2>
+      <div class="card fade-up">
+        <p>
+          FINE Okinawaの原点は、「もう一度、人を好きになる勇気を持ってほしい」という想いです。<br><br>
+          年齢を重ねたからこそ分かる穏やかさ、言葉の重み、そして人の温度。<br>
+          沖縄の光のようにやさしく、あたたかいご縁をつなげていきます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section id="voice">
+    <div class="wrap">
+      <h2 class="section-title">成婚者の声</h2>
+      <div class="voice-grid">
+        <div class="card fade-up">
+          「海辺のパーティーで出会いました。無理に話さなくても、自然に笑顔になれました。」<br>
+          <small>— 50代・女性</small>
+        </div>
+        <div class="card fade-up">
+          「気を張らずに話せる雰囲気がありがたかったです。ゆっくりと関係を築けました。」<br>
+          <small>— 40代・男性</small>
+        </div>
+        <div class="card fade-up">
+          「スタッフの方のサポートで、安心して再出発できました。」<br>
+          <small>— 60代・女性</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="wrap">
+      <h2 class="section-title">料金プラン</h2>
+      <div class="plan-grid">
+        <div class="card fade-up">
+          <h4>はじめてプラン</h4>
+          <p>月額 3,000円｜1件紹介</p>
+          <p>プロフィール作成・メール相談付き</p>
+        </div>
+        <div class="card fade-up">
+          <h4>スタンダード</h4>
+          <p>月額 6,000円｜3件紹介</p>
+          <p>お見合い日程調整・服装アドバイス込み</p>
+        </div>
+        <div class="card fade-up">
+          <h4>コンシェルジュ</h4>
+          <p>月額 10,000円｜無制限紹介（審査制）</p>
+          <p>パーティー優先参加＋個別相談付き</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact fade-up">
+    <div class="wrap">
+      <h2 class="section-title">まずはお気軽にご相談ください</h2>
+      <p style="text-align:center;color:var(--sub);margin-bottom:2rem;font-size:1.05rem">
+        お見合いやイベント参加について、<br>スタッフが丁寧にご案内いたします。
+      </p>
+
+      <div class="contact-card">
+        <h3 class="contact-title">📋 ご相談フォーム</h3>
+
+        <form onsubmit="return handleSubmit(event)" class="contact-form">
+          <label>お名前
+            <input type="text" required placeholder="例）山田 太郎" />
+          </label>
+          <label>ご年齢
+            <input type="number" min="18" max="90" placeholder="例）48" />
+          </label>
+          <label>ご希望の連絡方法
+            <select>
+              <option>メール</option>
+              <option>電話</option>
+              <option>LINE</option>
+            </select>
+          </label>
+          <label>ご相談内容
+            <textarea rows="4" placeholder="現状やご希望など自由にお書きください"></textarea>
+          </label>
+
+          <button type="submit" class="btn primary">送信する</button>
+          <p id="formStatus" style="color:var(--accent);display:none;text-align:center;margin-top:6px">
+            ありがとうございます。内容を確認し、担当よりご連絡いたします。
+          </p>
+        </form>
+
+        <div class="contact-divider" style="text-align:center;margin:2rem 0 1.5rem;color:var(--sub);opacity:0.7;font-size:0.95rem;">
+          または
+        </div>
+
+        <div class="contact-links" style="text-align:center;">
+          <p style="margin-bottom:.6rem;color:var(--sub);font-weight:500;">お電話・LINEでもご相談いただけます。</p>
+          <a href="tel:098-000-0000" class="btn">📞 電話で相談する</a>
+          <a href="https://lin.ee/xxxxx" target="_blank" class="btn primary">💬 LINEで相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPILOGUE -->
+  <section class="epilogue">
+    <p>出会いは、奇跡ではなく、光の選択。</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 FINE Okinawa — 光と風に包まれた、ご縁の場所。</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("show");
+        });
+      }, { threshold: 0.18 });
+      document.querySelectorAll(".fade-up").forEach(el => io.observe(el));
+
+      window.handleSubmit = (e) => {
+        e.preventDefault();
+        const s = document.getElementById("formStatus");
+        s.style.display = "block";
+        e.target.reset();
+        setTimeout(() => { s.style.display = "none"; }, 4000);
+        return false;
+      };
+    });
+  </script>
+
+</body>
+
+</html>
