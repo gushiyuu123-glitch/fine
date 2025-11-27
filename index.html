@@ -8,6 +8,47 @@
   <meta name="description"
     content="FINE（ファイン）Okinawa Editionは、40代以降の大人の出会いをサポートするお見合い＆少人数パーティーサービス。沖縄の光と海のように穏やかなご縁を結びます。" />
 
+  <!-- Meta partial for site-wide reuse. Placeholders: https://gushiken-base.vercel.app and https://gushiken-base.vercel.app/ -->
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://gushiken-base.vercel.app/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="FINE — Okinawa Edition｜40代からの穏やかな出会い" />
+<meta property="og:description" content="FINE（ファイン）Okinawa Editionは、40代以降の大人の出会いをサポートするお見合い＆少人数パーティーサービス。沖縄の光と海のように穏やかなご縁を結びます。" />
+<!-- Primary image (1200x630) -->
+<meta property="og:image" content="https://gushiken-base.vercel.app/image/hero_okinawa.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="FINE Okinawa" />
+<meta property="og:url" content="https://gushiken-base.vercel.app/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FINE — Okinawa Edition｜40代からの穏やかな出会い" />
+<meta name="twitter:description" content="FINE（ファイン）Okinawa Editionは、40代以降の大人の出会いをサポートするお見合い＆少人数パーティーサービス。沖縄の光と海のように穏やかなご縁を結びます。" />
+<meta name="twitter:image" content="https://gushiken-base.vercel.app/image/hero_okinawa.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "#website",
+      "name": "FINE Okinawa",
+      "url": "https://gushiken-base.vercel.app"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "#webpage",
+      "url": "https://gushiken-base.vercel.app/",
+      "name": "FINE — Okinawa Edition｜40代からの穏やかな出会い",
+      "description": "FINE（ファイン）Okinawa Editionは、40代以降の大人の出会いをサポートするお見合い＆少人数パーティーサービス。沖縄の光と海のように穏やかなご縁を結びます。"
+    }
+  ]
+}
+</script>
+
+
   <link
     href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -602,6 +643,28 @@
         padding: 70px 0;
       }
     }
+    @media (max-width: 899px) {
+  .hero img.bg {
+    object-position: 70% center; /* ← スマホだけ左寄せ */
+  }
+}
+
+/* モバイルメニュー ✕ ボタン */
+.menu-close {
+  display: block;
+  margin-left: auto;
+  font-size: 1.4rem;
+  border: none;
+  background: none;
+  color: var(--ink);
+  opacity: 0.8;
+  cursor: pointer;
+  margin-bottom: 1.8rem;
+}
+
+.menu-close:hover {
+  opacity: 1;
+}
 
     /* フッター */
     footer.site-footer {
@@ -634,19 +697,22 @@
       </label>
 
       <nav class="main-nav">
+        
         <a href="#service" onclick="document.getElementById('menuToggle').checked=false">サービス</a>
         <a href="#events" onclick="document.getElementById('menuToggle').checked=false">パーティー</a>
         <a href="#story" onclick="document.getElementById('menuToggle').checked=false">理念</a>
         <a href="#contact" onclick="document.getElementById('menuToggle').checked=false">相談予約</a>
+        
       </nav>
 
       <div class="overlay" onclick="document.getElementById('menuToggle').checked=false"></div>
+      
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <img src="image/hero_okinawa.jpg" class="bg" alt="沖縄の海辺のカフェで穏やかに語り合う大人の男女">
+    <img src="image/hero_okinawa.jpg" class="bg" alt="沖縄の海辺のカフェで穏やかに語り合う大人の男女" width="1600" height="900" decoding="async">
     <div class="hero-inner">
       <span class="hero-badge">沖縄の光と風に包まれて</span>
       <h1>もう一度、人を好きになる場所。</h1>
@@ -686,7 +752,7 @@
 
   <!-- 🎉 パーティー写真（添える感じ） -->
   <section class="section-photo party-photo">
-    <img src="image/photo_party.png" alt="沖縄の海辺カフェで談笑する40〜60代の男女">
+    <img src="image/photo_party.png" alt="沖縄の海辺カフェで談笑する40〜60代の男女" width="1200" height="800" loading="lazy" decoding="async">
   </section>
 
   <!-- EVENTS -->
@@ -714,7 +780,7 @@
   </section>
   <!-- 🌅 抽象海 写真 -->
   <section class="section-photo sea-photo">
-    <img src="image/photo_sea.png" alt="沖縄の夕暮れの海の風景">
+    <img src="image/photo_sea.png" alt="沖縄の夕暮れの海の風景" width="1200" height="600" loading="lazy" decoding="async">
   </section>
 
   <!-- STORY -->
@@ -828,6 +894,36 @@
   <section class="epilogue">
     <p>出会いは、奇跡ではなく、光の選択。</p>
   </section>
+<!-- DESIGN LINK -->
+<div style="
+  text-align:center;
+  padding: 60px 20px 40px;
+  color: #756e66;
+  font-size: .95rem;
+  opacity: .85;
+  line-height: 1.9;
+">
+  <p style="margin:0 0 12px; font-family:'Shippori Mincho B1',serif; letter-spacing:.06em;">
+    本サイトのデザイン・制作
+  </p>
+  <a href="https://gushiken-base.vercel.app" target="_blank"
+    style="
+      display:inline-block;
+      padding:10px 22px;
+      border:1px solid #d8d2c8;
+      border-radius:999px;
+      text-decoration:none;
+      color:#524b44;
+      background:rgba(255,255,255,0.6);
+      backdrop-filter:blur(6px);
+      transition:.25s;
+    "
+    onmouseover="this.style.opacity=0.75"
+    onmouseout="this.style.opacity=1"
+  >
+    Gushiken Design（制作相談はこちら）
+  </a>
+</div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
